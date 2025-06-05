@@ -1,6 +1,10 @@
 import axios from "axios";
 
-export class NameApiService {
+export interface NameApiService {
+  getFirstName(): Promise<string>;
+}
+
+export class NameApiServiceImpl implements NameApiService {
   private MAX_LENGTH = 4;
   public constructor() {}
 
