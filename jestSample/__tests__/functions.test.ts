@@ -15,11 +15,9 @@ describe("sumOfArray", () => {
     it("負の数や0を含んでも合計できる", () => {
       expect(sumOfArray([-1, 0, 1, 2])).toBe(2);
     });
-  });
 
-  describe("異常系", () => {
-    it("空配列の場合は例外を投げる", () => {
-      expect(() => sumOfArray([])).toThrow(TypeError);
+    it("空配列の場合は０を返却する", () => {
+      expect(sumOfArray([])).toBe(0);
     });
   });
 });
@@ -33,11 +31,8 @@ describe("asyncSumOfArray", () => {
     it("負の数や0を含んでも合計できる", async () => {
       await expect(asyncSumOfArray([-1, 0, 1, 2])).resolves.toBe(2);
     });
-  });
-
-  describe("異常系", () => {
-    it("空配列の場合は例外を投げる", async () => {
-      await expect(asyncSumOfArray([])).rejects.toBeInstanceOf(TypeError);
+    it("空配列の場合は０を返却する", async () => {
+      await expect(asyncSumOfArray([])).resolves.toBe(0);
     });
   });
 });
